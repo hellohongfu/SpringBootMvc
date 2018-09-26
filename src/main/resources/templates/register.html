@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<form action="#" th:action="@{/register}" th:object="${userModel}" method="post">
+
+<p>name: <input type="text" th:field="*{name}" /></p>
+<p>email: <input type="text" th:field="*{email}" /></p>
+
+<input type="submit" value="register"/>
+
+
+</form>
+
+
+</body>
+</html>

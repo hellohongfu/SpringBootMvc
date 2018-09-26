@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>welcome to our web site!</h1>
+<a href="/login"> login
+</a><br/>
+<a href="/register"> register
+</a>
+<h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
+
+</body>
+</html>

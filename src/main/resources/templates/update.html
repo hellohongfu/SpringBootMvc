@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>用户信息</h1>
+
+<p th:text="'result：'+${result}">name</p>
+<div th:text="'name:'+${userModel.name}">test</div>
+<div th:text="'id:'+${userModel.id}">test</div>
+<p>test cache</p>
+
+
+<form action="#" th:action="@{/save}"  enctype="multipart/form-data"  th:object="${userModel}" method="post">
+<p>id:<input type="text" th:field="*{id}"  readonly='readonly' /></p>
+<p>name: <input type="text" th:field="*{name}" /></p>
+<p>email: <input type="text" th:field="*{email}" /></p>
+
+<p>headImg: <img th:src="'/files/'+*{headImg}" /></p> 
+<input name="file" type="file"/>
+
+
+<input type="submit" value="Save"/>
+
+
+</form>
+
+</body>
+</html>
