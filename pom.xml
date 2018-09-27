@@ -96,6 +96,12 @@
 			<artifactId>jquery</artifactId> 
 			<version>3.2.1</version> 
 		</dependency>
+		<!--json rest-->
+		 <dependency>
+            <groupId>com.jayway.jsonpath</groupId>
+            <artifactId>json-path</artifactId>
+            <scope>test</scope>
+        </dependency>
 
 
 		
