@@ -79,6 +79,14 @@ public class UserController {
 		return "login";
 	}
 
+	@GetMapping("/restetPassword")
+	public String resetPassword(Model model) {
+
+		model.addAttribute("userModel", new User());
+		return "user/restetPassword";
+	}
+
+
 	// @PostMapping("/login")
 	// public String loginGet(@RequestParam(name = "name") String name, @RequestParam(name = "password") String password,
 	// 		Model model) {
