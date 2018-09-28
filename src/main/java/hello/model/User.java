@@ -1,9 +1,13 @@
 package hello.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity // This tells Hibernate to make a table out of this class
 public class User {
@@ -11,11 +15,20 @@ public class User {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
 
+	@NotEmpty(message="姓名不能为空！")
+	@NotNull(message="用户名不能为空")
     private String name;
 
+	@NotNull(message="电子邮件不能为空")
+	@Email(message="电子邮件格式不对")
 	private String email;
+
+	@NotNull(message="手机号不能为空")
+
+	@Column(length=11)
 	private String mobile;
-	
+
+	@NotNull(message="密码不能为空")
 	private String password;
 	
 	private String headImg;
