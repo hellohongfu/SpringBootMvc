@@ -56,7 +56,7 @@ public class SysUser implements UserDetails {
 		return email;
 	}
 
-	public void setEmail(String email) {
+    public void setEmail(String email) {
 		this.email = email;
 	}
 
@@ -72,7 +72,28 @@ public class SysUser implements UserDetails {
 
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
-	}
+    }
+    
+    
+    private String qrCode;
+    
+	/**
+     * @return the qrCode
+     */
+    public String getQrCode() {
+        return qrCode;
+    }
+
+    /**
+     * @param qrCode the qrCode to set
+     */
+    public void setQrCode(String qrCode) {
+        this.qrCode = qrCode;
+    }
+
+
+
+    
 
     
 

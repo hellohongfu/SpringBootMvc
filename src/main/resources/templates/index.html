@@ -9,6 +9,9 @@
     <div class="starter-template">
         <h1 th:text="${msg.title}"></h1>
         <p th:text="${session.SPRING_SECURITY_CONTEXT.authentication.principal.username}">userName</p>
+        <p>
+                <img th:src="${session.SPRING_SECURITY_CONTEXT.authentication.principal.qrCode}" />
+        </p>
         <p class="bg-primary" th:text="${msg.content}"></p>
         <div sec:authorize="hasRole('ROLE_ADMIN')">
             <p class="bg-info" th:text="${msg.extraInfo}"></p>
