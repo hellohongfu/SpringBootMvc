@@ -19,6 +19,14 @@
         <div sec:authorize="hasRole('ROLE_USER')">
             <p class="bg-info">无更多显示信息</p>
         </div>
+
+
+        <h1 th:text="附件列表"></h1>
+        <p th:each="file:${files}">
+            <span th:text="${file.url}">url</span> |<span th:text="${file.createdTime}">createdTime</span> 
+        </p>
+
+
         <form th:action="@{/logout}" method="post">
             <input type="submit" class="btn btn-primary" value="注销"/>
         </form>

@@ -56,7 +56,10 @@ public class FileUploadController {
     public String handleFileUpload(@RequestParam("file") MultipartFile file,
             RedirectAttributes redirectAttributes) {
 
-        storageService.store(file);
+
+        System.out.println("testewt save ");
+       // storageService.store(file);
+        System.out.println("testewt save ");
         redirectAttributes.addFlashAttribute("message",
                 "You successfully uploaded " + file.getOriginalFilename() + "!");
 

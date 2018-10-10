@@ -4,16 +4,7 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        {
-            "type": "java",
-            "name": "Debug (Launch)",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
-            "stopOnEntry": false,
-            "mainClass": "",
-            "args": ""
-        },
+     
         {
             "type": "java",
             "name": "Debug (Launch)-Application<gs-serving-web-content>",
@@ -30,7 +21,9 @@
             "name": "Debug (Attach)",
             "request": "attach",
             "hostName": "localhost",
-            "port": "8080"
+            "mainClass": "hello.Application",
+
+            "port": "8088"
         }
     ]
 }
