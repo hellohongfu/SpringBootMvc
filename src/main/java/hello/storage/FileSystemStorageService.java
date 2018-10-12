@@ -3,7 +3,6 @@ package hello.storage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileSystemUtils;
 import org.springframework.web.multipart.MultipartFile;
@@ -15,19 +14,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
-import hello.repository.AttachFilesRepository;
-import hello.model.AttachFiles;
-import hello.model.SysUser;
-
 @Service
 public class FileSystemStorageService implements StorageService {
 
     private final Path rootLocation;
-
-
-    @Autowired
-    AttachFilesRepository attachFilesRepository;
-
 
     @Autowired
     public FileSystemStorageService(StorageProperties properties) {
@@ -40,31 +30,7 @@ public class FileSystemStorageService implements StorageService {
             if (file.isEmpty()) {
                 throw new StorageException("Failed to store empty file " + file.getOriginalFilename());
             }
-
-            SysUser principal =  (SysUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-            String id =principal.getId().toString();
-        
-            Path p=this.rootLocation.resolve(file.getOriginalFilename());
-
-            Files.copy(file.getInputStream(), p);
-
-            AttachFiles entity=new AttachFiles();
-
-            entity.setObjectId(id);
-            entity.setObjectType("user");
-            
-            entity.setCreatedBy(principal.getUsername());
-
-            entity.setUrl(p.toUri().toString());
-            attachFilesRepository.save(entity);
-
-
-
-
-
-
-
+            Files.copy(file.getInputStream(), this.rootLocation.resolve(file.getOriginalFilename()));
         } catch (IOException e) {
             throw new StorageException("Failed to store file " + file.getOriginalFilename(), e);
         }
@@ -112,6 +78,7 @@ public class FileSystemStorageService implements StorageService {
     @Override
     public void init() {
         try {
+            
             Files.createDirectory(rootLocation);
         } catch (IOException e) {
             throw new StorageException("Could not initialize storage", e);

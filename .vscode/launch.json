@@ -7,23 +7,13 @@
      
         {
             "type": "java",
-            "name": "Debug (Launch)-Application<gs-serving-web-content>",
+            "name": "Debug hellohongfu-springboot",
             "request": "launch",
             "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
-            "stopOnEntry": false,
+           
             "mainClass": "hello.Application",
-            "args": "",
-            "projectName": "gs-serving-web-content"
-        },
-        {
-            "type": "java",
-            "name": "Debug (Attach)",
-            "request": "attach",
-            "hostName": "localhost",
-            "mainClass": "hello.Application",
-
-            "port": "8088"
+            "args": ""
+            
         }
     ]
 }
