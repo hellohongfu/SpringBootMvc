@@ -23,7 +23,10 @@
 
         <h1 th:text="附件列表"></h1>
         <p th:each="file:${files}">
-            <span th:text="${file.url}">url</span> |<span th:text="${file.createdTime}">createdTime</span> 
+            <span th:text="'/files/'+${file.url}">url</span> |<span th:text="${file.createdTime}">createdTime</span> 
+
+           
+		    <img  th:src="'/files/'+${file.url}"  width="100" height="100" />
         </p>
         <a href="/fileupload">Upload File</a>
 
