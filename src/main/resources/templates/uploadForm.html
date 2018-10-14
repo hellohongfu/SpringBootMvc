@@ -7,9 +7,20 @@
 
 	<div>
 		<form method="POST" enctype="multipart/form-data" action="/fileupload">
-			
+		
+			<!----
         <p th:text="${session.SPRING_SECURITY_CONTEXT.authentication.principal.username}">userName</p>
-      
+	  -->
+	  
+	       <div >
+
+			<span  th:text="${_csrf.parameterName}"></span>
+			<input type="text" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+
+		   </div>
+		   <div th:text="${_csrf.token}">test</div>
+		   
+
 			<table>
 				<tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
 				<tr><td></td><td><input type="submit" value="Upload" /></td></tr>

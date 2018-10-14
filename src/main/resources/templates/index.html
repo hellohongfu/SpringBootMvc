@@ -25,6 +25,7 @@
         <p th:each="file:${files}">
             <span th:text="${file.url}">url</span> |<span th:text="${file.createdTime}">createdTime</span> 
         </p>
+        <a href="/fileupload">Upload File</a>
 
 
         <form th:action="@{/logout}" method="post">
